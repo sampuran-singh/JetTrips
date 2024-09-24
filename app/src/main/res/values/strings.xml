@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">JetTrips</string>
+    //Onboarding
+    <string name="onboarding_enter_email">Enter your email address</string>
+    <string name="onboarding_enter_email_description">We will use this to sign you in or to create an account if you do not have one yet</string>
+    <string name="email">Email address</string>
+    <string name="email_label">Enter valid email for enabling button</string>
+    <string name="email_hint">Enter your email address</string>
+    <string name="email_button_continue">Continue</string>
+    //Login
+    <string name="login_tell_us_name">First, tell us your preferred name</string>
+    <string name="login_tell_us_name_description">We are setting account for %s. Please let us know your preferred name to get started</string>
+    <string name="login_hint_first_name">First name</string>
+    <string name="login_hint_last_name">Last name</string>
+    //OTP
+    <string name="otp_sign_in">Sign in with OTP</string>
+    <string name="otp_sign_in_desc">Enter the OTP provided in the email sent to %s</string>
+
+    //Categories
+    <string name="category_hotel">Hotels</string>
+    <string name="category_flight">Flights</string>
+    <string name="category_activities">Activities</string>
+    <string name="category_train">Train</string>
+    <string name="category_cab">Cabs</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_name">channel1</string>
+    <string name="notification_channel_description">Daily Notification</string>
 </resources>
