@@ -9,6 +9,14 @@ import androidx.compose.ui.unit.sp
 import com.example.jettrips.R
 
 // Set of Material typography styles to start with
+
+val sanComicsFontFamily = FontFamily(
+    Font(R.font.comic_sans, FontWeight.Light),
+    Font(R.font.comic_sans, FontWeight.Normal),
+    Font(R.font.comic_sans, FontWeight.Bold),
+    Font(R.font.comic_sans, FontWeight.Black),
+)
+
 val Typography = Typography(
     bodyLarge = TextStyle(
         fontFamily = FontFamily.Default,
@@ -35,10 +43,12 @@ val Typography = Typography(
     */
 )
 
-
-val sanComicsFontFamily = FontFamily(
-    Font(R.font.comic_sans, FontWeight.Light),
-    Font(R.font.comic_sans, FontWeight.Normal),
-    Font(R.font.comic_sans, FontWeight.Bold),
-    Font(R.font.comic_sans, FontWeight.Black),
+val SanComicsTypography = Typography(
+    bodyLarge = TextStyle(
+        fontFamily = sanComicsFontFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
+    )
 )

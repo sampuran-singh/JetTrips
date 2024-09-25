@@ -22,7 +22,7 @@ fun ComposeNavGraph(
     navController: NavHostController = rememberNavController()
 ) {
     //ROUTE_AUTH_NESTED
-    NavHost(navController = navController, startDestination = ROUTE_HOME) {
+    NavHost(navController = navController, startDestination = ROUTE_FLIGHT) {
         onboardingRoute(modifier, navController)
         composable<ROUTE_HOME> {
             HomeScreen(modifier = modifier, {
