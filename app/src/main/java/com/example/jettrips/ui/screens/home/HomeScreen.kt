@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -42,6 +44,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.jettrips.R
 import com.example.jettrips.ui.screens.bottombar.HomeBottomBar
+import com.example.jettrips.ui.screens.home.explore.ExploreCard
+import com.example.jettrips.ui.screens.home.travelblogs.TravelBlogCard
 import com.example.jettrips.ui.theme.JetTripsTheme
 import com.example.jettrips.ui.theme.sanComicsFontFamily
 import com.example.jettrips.utils.CATEGORY_ID
@@ -78,6 +82,7 @@ fun HomeScreen(
                 .fillMaxHeight()
                 .background(colorResource(id = R.color.white))
                 .padding(it)
+                .verticalScroll(rememberScrollState()) // Adds scrolling
         ) {
             Row(
                 modifier = Modifier
@@ -114,6 +119,8 @@ fun HomeScreen(
                     )
                 }
             }
+            ExploreCard()
+            TravelBlogCard()
         }
     }
 }
@@ -258,18 +265,3 @@ fun CategoryActivityPreview() {
         ) {}
     }
 }
-
-
-//            Canvas(
-//                modifier = Modifier
-//                    .size(size * 4) // Adjust the size of the quarter circle
-//                    .align(Alignment.BottomEnd)
-//                    .offset(x = size, y = size)
-//            ) {
-//                drawArc(
-//                    color = Color.Red, // Set the color of the quarter circle
-//                    startAngle = 180f,
-//                    sweepAngle = 90f, // Draw only a quarter of the circle (90 degrees)
-//                    useCenter = true
-//                )
-//            }

@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.kapt)
     alias(libs.plugins.jetbrains.kotlin.serialization)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -50,6 +51,12 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    testOptions {
+        unitTests {
+            isReturnDefaultValues = true
+        }
+    }
 }
 
 dependencies {
@@ -62,6 +69,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(project(":HttpLibrary"))
+    implementation(project(":ImageLoader"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,4 +80,13 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+    testImplementation(libs.androidXTestCore)
+    testImplementation(libs.mockitoCore)
+    testImplementation(libs.mockitoKotlin)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinxCoroutinesTest)
+    testImplementation(kotlin("test"))
 }

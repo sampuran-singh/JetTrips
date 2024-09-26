@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "JetTrips"
 include(":app")
- 
+include(":ImageLoader")
+include(":HttpLibrary")

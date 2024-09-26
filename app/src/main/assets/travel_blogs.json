@@ -1,0 +1,41 @@
+{
+  "travel_blogs": [
+    {
+      "name": "Nomadic Matt",
+      "url": "https://www.nomadicmatt.com",
+      "img": "https://i.ibb.co/1MTvctD/nomadic-matt-min.webp",
+      "description": "A popular travel blog providing budget travel tips."
+    },
+    {
+      "name": "The World Travel Guy",
+      "url": "https://theworldtravelguy.com/",
+      "img": "https://i.ibb.co/Jj1MjBS/theworldtravelguy.webp",
+      "description": " David Leiter's website  who's been traveling the world full time for 8 years now."
+    },
+    {
+      "name": "The Blonde Abroad",
+      "url": "https://www.theblondeabroad.com",
+      "description": "Kiersten’s blog focusing on solo female travel with photography and lifestyle content."
+    },
+    {
+      "name": "Expert Vagabond",
+      "url": "https://expertvagabond.com",
+      "description": "Adventure travel blog featuring unique experiences and photography from around the world."
+    },
+    {
+      "name": "Adventurous Kate",
+      "url": "https://www.adventurouskate.com",
+      "description": "Kate's blog about solo female travel, tips, and adventure."
+    },
+    {
+      "name": "Hand Luggage Only",
+      "url": "https://handluggageonly.co.uk",
+      "description": "A travel and photography blog showcasing destinations and travel tips."
+    },
+    {
+      "name": "Dan Flying Solo",
+      "url": "https://www.danflyingsolo.com",
+      "description": "Travel blog focusing on solo adventures, cultural experiences, and photography."
+    }
+  ]
+}

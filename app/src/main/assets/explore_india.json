@@ -1,0 +1,52 @@
+{
+  "most_visited_india": [
+    {
+      "name": "Shimla",
+      "location": "Himachal Pradesh",
+      "img": "https://i.ibb.co/2sRQ58S/location-shimla.webp",
+      "description": "Picturesque hill station known for its colonial architecture, scenic landscapes, and pleasant climate."
+    },
+    {
+      "name": "Goa",
+      "location": "Goa, India",
+      "img": "https://i.ibb.co/6YPJ1ny/Location-Goa.webp",
+      "description": "A popular beach destination, Goa is known for its vibrant nightlife, scenic beaches, and Portuguese-influenced architecture."
+    },
+    {
+      "name": "Jaipur",
+      "location": "Rajasthan, India",
+      "img": "https://i.ibb.co/DD1hT5N/location-jaipur.webp",
+      "description": "Known as the Pink City, Jaipur is famous for its stunning forts, palaces, and vibrant markets."
+    },
+    {
+      "name": "Varanasi",
+      "location": "Uttar Pradesh, India",
+      "img": "https://i.ibb.co/hf4sWn4/location-varanasi.webp",
+      "description": "One of the oldest cities in the world, Varanasi is a spiritual hub located on the banks of the Ganges."
+    },
+    {
+      "name": "Kerala Backwaters",
+      "location": "Kerala, India",
+      "img": "https://i.ibb.co/ggTM6vj/location-kerala.webp",
+      "description": "A tranquil network of lagoons and lakes, Kerala Backwaters are famous for houseboat cruises and lush landscapes."
+    },
+    {
+      "name": "Lahaul & Spiti",
+      "location": "Himachal Pradesh, India",
+      "img": "https://i.ibb.co/xG6xTMz/location-spiti.webp",
+      "description": "A remote and scenic area in the Himalayas, Lahaul & Spiti offers breathtaking landscapes and Buddhist monasteries."
+    },
+    {
+      "name": "Mysore",
+      "location": "Karnataka, India",
+      "img": "https://i.ibb.co/tmpWbgY/location-mysore.webp",
+      "description": "Mysore is renowned for its royal heritage, with landmarks like Mysore Palace and the annual Dussehra festival."
+    },
+    {
+      "name": "Leh-Ladakh",
+      "location": "Jammu & Kashmir, India",
+      "img": "https://i.ibb.co/ChLC4xb/location-leh.webp",
+      "description": "A high-altitude desert, Leh-Ladakh is known for its stark landscapes, Buddhist monasteries, and adventurous trekking routes."
+    }
+  ]
+}
