@@ -1,4 +1,4 @@
-package com.example.jettrips.ui.screens
+package com.example.jettrips.test
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Box

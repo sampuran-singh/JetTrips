@@ -26,15 +26,13 @@ val categories = listOf(
         categoryId = CATEGORY_ID.CATEGORY_HOTEL,
         textResId = R.string.category_hotel,
         colors = listOf(Color.White, Color.Blue),
-        iconResId = R.drawable.ic_homestay,
-        size = 96.dp
+        iconResId = R.drawable.ic_homestay
     ),
     CategoryItem(
         categoryId = CATEGORY_ID.CATEGORY_FLIGHT,
         textResId = R.string.category_flight,
         colors = listOf(Color.White, Color.Green),
-        iconResId = R.drawable.ic_flights,
-        size = 96.dp
+        iconResId = R.drawable.ic_flights
     ),
     CategoryItem(
         categoryId = CATEGORY_ID.CATEGORY_CAB,
@@ -47,12 +45,12 @@ val categories = listOf(
         textResId = R.string.category_train,
         colors = listOf(Color.White, Color.Red),
         iconResId = R.drawable.ic_train
-    ),
-    CategoryItem(
-        categoryId = CATEGORY_ID.CATEGORY_ACTIVITY,
-        textResId = R.string.category_activities,
-        colors = listOf(Color.White, Color.Cyan),
-        iconResId = R.drawable.ic_activity
     )
+//    CategoryItem(
+//        categoryId = CATEGORY_ID.CATEGORY_ACTIVITY,
+//        textResId = R.string.category_activities,
+//        colors = listOf(Color.White, Color.Cyan),
+//        iconResId = R.drawable.ic_activity
+//    )
 )
 

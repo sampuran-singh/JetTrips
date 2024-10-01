@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.jettrips.model.TouristDestination
 import com.example.jettrips.ui.components.JetTripImageView
+import com.example.jettrips.ui.screens.home.HeaderComponent
 import com.example.jettrips.ui.screens.home.HomeUiState
 import com.example.jettrips.ui.screens.home.HomeViewModel
 import com.example.jettrips.ui.theme.JetTripsTheme
@@ -33,17 +34,7 @@ fun ExploreCard(
     val uiState by homeViewModel.destinationUiState
 
     Column(modifier = modifier.padding(16.dp)) {
-        Text(
-            text = "Explore India",
-            style = MaterialTheme.typography.titleLarge,
-            color = Color.Black
-        )
-        Text(
-            text = "Most visited destination",
-            style = MaterialTheme.typography.titleMedium,
-            color = Color.Black
-        )
-
+        HeaderComponent("Explore India", "Most visited destination")
         when (uiState) {
             is HomeUiState.Loading -> {
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))

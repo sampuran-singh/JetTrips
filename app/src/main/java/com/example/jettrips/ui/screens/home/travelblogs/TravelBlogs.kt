@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.jettrips.model.TravelBlog
 import com.example.jettrips.ui.components.JetTripImageView
+import com.example.jettrips.ui.screens.home.HeaderComponent
 import com.example.jettrips.ui.screens.home.HomeUiState
 import com.example.jettrips.ui.screens.home.HomeViewModel
 import com.example.jettrips.ui.theme.JetTripsTheme
@@ -37,11 +38,7 @@ fun TravelBlogCard(
     val uiState by homeViewModel.blogsUiState
 
     Column(modifier = modifier.padding(16.dp)) {
-        Text(
-            text = "Get inspiration for next trip",
-            style = MaterialTheme.typography.titleLarge,
-            color = Color.Black
-        )
+        HeaderComponent(title = "Get inspiration for next trip")
 
         when (uiState) {
             is HomeUiState.Loading -> {
