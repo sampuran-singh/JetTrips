@@ -19,9 +19,14 @@
     <string name="login_tell_us_name_description">We are setting account for %s. Please let us know your preferred name to get started</string>
     <string name="login_hint_first_name">First name</string>
     <string name="login_hint_last_name">Last name</string>
+    <string name="login_welcome_title">Welcome to JetTrips</string>
+    <string name="login_welcome_desc">Enter your phone number to login</string>
+    <string name="login_language_icon">Language icon</string>
+    <string name="login_enter_phone_number">Enter Phone Number</string>
+    <string name="login_enter_phone_number_placeholder">10-digit mobile number</string>
     //OTP
     <string name="otp_sign_in">Sign in with OTP</string>
-    <string name="otp_sign_in_desc">Enter the OTP provided in the email sent to %s</string>
+    <string name="otp_sign_in_desc">Enter the OTP to %s in Notification</string>
 
     //Categories
     <string name="category_hotel">Hotels</string>

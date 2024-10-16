@@ -24,6 +24,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.jettrips.R
+import com.example.jettrips.utils.JetTripsButton
 import com.example.jettrips.utils.TermsAndPrivacyText
 import com.google.accompanist.pager.ExperimentalPagerApi
 
@@ -97,24 +98,10 @@ fun WelcomeScreen(modifier: Modifier, onLogInClicked: () -> Unit, onSignUpClicke
                 .height(8.dp)
                 .weight(1f)
         )
-        Button(
-            onClick = { onLogInClicked() },
-            colors = ButtonDefaults.buttonColors(
-                containerColor = colorResource(id = R.color.blue),
-                contentColor = colorResource(id = R.color.white),
-                disabledContainerColor = colorResource(id = R.color.grey),
-                disabledContentColor = colorResource(id = R.color.grey)
-            ),
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            Text(
-                text = stringResource(id = R.string.button_welcome_login),
-                textAlign = TextAlign.Center,
-                color = Color.White,
-                style = MaterialTheme.typography.bodyMedium,
-            )
-        }
+        JetTripsButton(
+            text = stringResource(id = R.string.button_welcome_login),
+            enabled = true
+        ) { onLogInClicked() }
         Button(
             onClick = { onSignUpClicked() },
             colors = ButtonDefaults.buttonColors(

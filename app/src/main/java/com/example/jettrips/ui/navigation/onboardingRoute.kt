@@ -5,6 +5,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import androidx.navigation.toRoute
+import com.example.jettrips.ui.screens.onboarding.LoginPhoneScreen
 import com.example.jettrips.ui.screens.onboarding.LoginScreen
 import com.example.jettrips.ui.screens.onboarding.OnboardingScreen
 import com.example.jettrips.ui.screens.onboarding.OtpScreen
@@ -18,7 +20,7 @@ fun NavGraphBuilder.onboardingRoute(modifier: Modifier, navController: NavHostCo
     navigation<ROUTE_AUTH_NESTED>(startDestination = ROUTE_AUTH_NESTED_WELCOME) {
         composable<ROUTE_AUTH_NESTED_WELCOME> {
             WelcomeScreen(modifier = Modifier, {
-                navController.navigate(route = ROUTE_AUTH_NESTED_ONBOARDING)
+                navController.navigate(route = ROUTE_AUTH_NESTED_LOGIN_MOBILE)
             }, {
                 navController.navigate(route = ROUTE_AUTH_NESTED_ONBOARDING)
             })
@@ -28,13 +30,26 @@ fun NavGraphBuilder.onboardingRoute(modifier: Modifier, navController: NavHostCo
                 navController.navigate(route = ROUTE_AUTH_NESTED_LOGIN)
             }
         }
+        composable<ROUTE_AUTH_NESTED_LOGIN_MOBILE> {
+            LoginPhoneScreen(
+                modifier = modifier,
+                {
+                    //On Continue button clicked
+                    navController.navigate(route = ROUTE_AUTH_NESTED_OTP(phoneNumber = it))
+                },
+                {
+                    //On Back button clicked
+                    navController.popBackStack()
+                })
+        }
         composable<ROUTE_AUTH_NESTED_LOGIN> {
             LoginScreen(modifier = modifier) {
                 navController.navigate(route = ROUTE_AUTH_NESTED_OTP)
             }
         }
         composable<ROUTE_AUTH_NESTED_OTP> {
-            OtpScreen(modifier = modifier) {
+            val phone = it.toRoute<ROUTE_AUTH_NESTED_OTP>()
+            OtpScreen(modifier = modifier, phone.phoneNumber) {
                 navController.navigate(route = ROUTE_HOME) {
                     popUpTo(ROUTE_AUTH_NESTED_ONBOARDING) {
                         inclusive = true
@@ -56,4 +71,7 @@ object ROUTE_AUTH_NESTED_ONBOARDING
 object ROUTE_AUTH_NESTED_LOGIN
 
 @Serializable
-object ROUTE_AUTH_NESTED_OTP
+object ROUTE_AUTH_NESTED_LOGIN_MOBILE
+
+@Serializable
+data class ROUTE_AUTH_NESTED_OTP(val phoneNumber: String)

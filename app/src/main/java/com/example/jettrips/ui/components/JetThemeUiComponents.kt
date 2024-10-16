@@ -56,6 +56,10 @@ fun JetTripTextField(
         colors = OutlinedTextFieldDefaults.colors(
             focusedTextColor = Color.Blue,
             focusedBorderColor = Color.Blue,
+            focusedContainerColor = Color.Blue,
+            errorContainerColor = Color.Red,
+            disabledContainerColor = Color.Gray,
+            unfocusedContainerColor = Color.DarkGray,
             focusedLabelColor = Color.Blue,
             unfocusedLabelColor = Color.Black
         ),

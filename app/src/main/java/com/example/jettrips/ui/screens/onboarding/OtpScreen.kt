@@ -45,13 +45,13 @@ import com.example.jettrips.utils.NotificationUtils
 @Composable
 fun OtpScreen(
     modifier: Modifier,
-    email: String = "sample@gmail.com",
+    phoneNumber: String,
     onContinueClicked: () -> Unit
 ) {
     var isButtonEnabled by remember { mutableStateOf(false) }
     val context = LocalContext.current.applicationContext
 
-    LaunchedEffect(email) {
+    LaunchedEffect(phoneNumber) {
         val some = NotificationUtils.getNotificationBuilder(context)
         NotificationUtils.notify(context, some.build())
     }
@@ -71,7 +71,7 @@ fun OtpScreen(
         )
         Spacer(modifier = Modifier.height(10.dp))
         Text(
-            text = stringResource(id = R.string.otp_sign_in_desc, email),
+            text = stringResource(id = R.string.otp_sign_in_desc, phoneNumber),
             textAlign = TextAlign.Start,
             color = Color.Black,
             style = MaterialTheme.typography.bodyMedium,
@@ -126,12 +126,10 @@ fun OTPView(onOTPComplete: (String) -> Unit) {
                         otpValues.value = otpValues.value.toMutableList().also {
                             it[index] = newValue
                         }
-                        // Move focus to the next field if not at the last one
                         if (newValue.isNotEmpty() && index < 5) {
                             focusRequesters[index + 1].requestFocus()
                         }
 
-                        // Check if all fields are filled
                         if (otpValues.value.all { it.isNotEmpty() }) {
                             onOTPComplete(otpValues.value.joinToString(""))
                         }
@@ -189,6 +187,6 @@ fun PreviewOTPView() {
 @Composable
 fun OtpScreenPreview() {
     JetTripsTheme(darkTheme = true) {
-        OtpScreen(Modifier, "sample@gmail.com") {}
+        OtpScreen(Modifier, "8990909090") {}
     }
 }

@@ -88,7 +88,6 @@ private val lightColors = lightColorScheme(
 )
 
 
-
 private val JetTheme = lightColorScheme(
     primary = Color.White,
     secondary = LightBlue,
@@ -99,7 +98,6 @@ private val JetTheme = lightColorScheme(
 @Composable
 fun JetTripsTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     isSanComicsFont: Boolean = false,
     content: @Composable () -> Unit
