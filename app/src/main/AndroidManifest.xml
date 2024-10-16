@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".JetTripsApplication"
@@ -17,9 +18,8 @@
         tools:targetApi="31">
         <activity
             android:name=".test.TestActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-        android:exported="true" >
-        </activity>
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"

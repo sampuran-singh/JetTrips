@@ -71,7 +71,6 @@ fun HomeScreen(
                 Text(
                     text = "Top Bar",
                     color = Color.Black,
-                    fontFamily = sanComicsFontFamily,
                     style = MaterialTheme.typography.bodyLarge,
                     modifier = Modifier.padding(vertical = 8.dp),
                 )

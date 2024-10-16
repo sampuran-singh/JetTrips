@@ -8,13 +8,21 @@ import androidx.navigation.navigation
 import com.example.jettrips.ui.screens.onboarding.LoginScreen
 import com.example.jettrips.ui.screens.onboarding.OnboardingScreen
 import com.example.jettrips.ui.screens.onboarding.OtpScreen
+import com.example.jettrips.ui.screens.onboarding.WelcomeScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
 object ROUTE_AUTH_NESTED
 
 fun NavGraphBuilder.onboardingRoute(modifier: Modifier, navController: NavHostController) {
-    navigation<ROUTE_AUTH_NESTED>(startDestination = ROUTE_AUTH_NESTED_ONBOARDING) {
+    navigation<ROUTE_AUTH_NESTED>(startDestination = ROUTE_AUTH_NESTED_WELCOME) {
+        composable<ROUTE_AUTH_NESTED_WELCOME> {
+            WelcomeScreen(modifier = Modifier, {
+                navController.navigate(route = ROUTE_AUTH_NESTED_ONBOARDING)
+            }, {
+                navController.navigate(route = ROUTE_AUTH_NESTED_ONBOARDING)
+            })
+        }
         composable<ROUTE_AUTH_NESTED_ONBOARDING> {
             OnboardingScreen(modifier = modifier) {
                 navController.navigate(route = ROUTE_AUTH_NESTED_LOGIN)
@@ -36,6 +44,10 @@ fun NavGraphBuilder.onboardingRoute(modifier: Modifier, navController: NavHostCo
         }
     }
 }
+
+
+@Serializable
+object ROUTE_AUTH_NESTED_WELCOME
 
 @Serializable
 object ROUTE_AUTH_NESTED_ONBOARDING

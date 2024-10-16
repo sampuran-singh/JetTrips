@@ -56,7 +56,6 @@ fun OnboardingScreen(modifier: Modifier, onContinueClicked: () -> Unit) {
             text = stringResource(id = R.string.onboarding_enter_email),
             textAlign = TextAlign.Center,
             color = Color.Black,
-            fontFamily = sanComicsFontFamily,
             style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold)
         )
         Spacer(modifier = Modifier.height(10.dp))
@@ -64,13 +63,11 @@ fun OnboardingScreen(modifier: Modifier, onContinueClicked: () -> Unit) {
             text = stringResource(id = R.string.onboarding_enter_email_description),
             color = Color.Black,
             textAlign = TextAlign.Start,
-            fontFamily = sanComicsFontFamily,
             style = MaterialTheme.typography.bodyMedium,
         )
         Spacer(modifier = Modifier.height(40.dp))
         Text(
             text = stringResource(id = R.string.email),
-            fontFamily = sanComicsFontFamily,
             textAlign = TextAlign.Start,
             color = Color.Black,
             style = MaterialTheme.typography.bodyMedium,

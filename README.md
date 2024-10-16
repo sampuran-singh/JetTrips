@@ -1,7 +1,6 @@
 <div align="center">
   <h2>JetTrips: Dummy Travel App</h2>
 </div>
-------
 
 **JetTrips** is a Android application implemented in Jetpack compose. 
 

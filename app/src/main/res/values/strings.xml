@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">JetTrips</string>
+    //Welcome screen
+    <string name="image_slider">Welcome screen slider</string>
+    <string name="welcome_to_jettrips">Welcome to JetTrips!</string>
+    <string name="welcome_to_jettrips_desc">Discover your next adventure with our easy-to-use travel app, where booking flights, hotels, and experiences is just a tap away</string>
+    <string name="button_welcome_login">Log In</string>
+    <string name="button_welcome_signup">"I'm new, sign me up"</string>
+
     //Onboarding
     <string name="onboarding_enter_email">Enter your email address</string>
     <string name="onboarding_enter_email_description">We will use this to sign you in or to create an account if you do not have one yet</string>
@@ -26,4 +33,5 @@
     <!-- Notifications -->
     <string name="notification_channel_name">channel1</string>
     <string name="notification_channel_description">Daily Notification</string>
+
 </resources>
