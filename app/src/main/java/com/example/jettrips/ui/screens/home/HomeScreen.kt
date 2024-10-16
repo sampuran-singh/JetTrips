@@ -92,7 +92,7 @@ fun HomeScreen(
             categories.chunked(2).forEach { chunkedCategories ->
                 Row(
                     modifier = Modifier
-                        .height(100.dp)
+                        .height(70.dp)
                         .fillMaxWidth()
                         .padding(start = 16.dp, end = 16.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -206,6 +206,7 @@ fun Category(
         Row(
             modifier = categoryModifier
                 .fillMaxSize()
+                .background(Color.White)
                 .padding(horizontal = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {

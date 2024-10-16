@@ -10,47 +10,40 @@ data class CategoryItem(
     val textResId: Int,
     val colors: List<Color>,
     val iconResId: Int,
-    val size: Dp = 64.dp
+    val size: Dp = 48.dp
 )
 
 enum class CATEGORY_ID {
     CATEGORY_FLIGHT,
     CATEGORY_HOTEL,
     CATEGORY_CAB,
-    CATEGORY_TRAIN,
-    CATEGORY_ACTIVITY
+    CATEGORY_HOLIDAY
 }
 
 val categories = listOf(
     CategoryItem(
-        categoryId = CATEGORY_ID.CATEGORY_HOTEL,
-        textResId = R.string.category_hotel,
-        colors = listOf(Color.White, Color.Blue),
-        iconResId = R.drawable.ic_homestay
-    ),
-    CategoryItem(
         categoryId = CATEGORY_ID.CATEGORY_FLIGHT,
         textResId = R.string.category_flight,
         colors = listOf(Color.White, Color.Green),
-        iconResId = R.drawable.ic_flights
+        iconResId = R.drawable.category_place
+    ),
+    CategoryItem(
+        categoryId = CATEGORY_ID.CATEGORY_HOTEL,
+        textResId = R.string.category_hotel,
+        colors = listOf(Color.White, Color.Blue),
+        iconResId = R.drawable.category_hotels
     ),
     CategoryItem(
         categoryId = CATEGORY_ID.CATEGORY_CAB,
         textResId = R.string.category_cab,
         colors = listOf(Color.White, Color.Yellow),
-        iconResId = R.drawable.ic_car
+        iconResId = R.drawable.category_cab
     ),
     CategoryItem(
-        categoryId = CATEGORY_ID.CATEGORY_TRAIN,
-        textResId = R.string.category_train,
+        categoryId = CATEGORY_ID.CATEGORY_HOLIDAY,
+        textResId = R.string.category_holiday,
         colors = listOf(Color.White, Color.Red),
-        iconResId = R.drawable.ic_train
+        iconResId = R.drawable.category_holiday
     )
-//    CategoryItem(
-//        categoryId = CATEGORY_ID.CATEGORY_ACTIVITY,
-//        textResId = R.string.category_activities,
-//        colors = listOf(Color.White, Color.Cyan),
-//        iconResId = R.drawable.ic_activity
-//    )
 )
 

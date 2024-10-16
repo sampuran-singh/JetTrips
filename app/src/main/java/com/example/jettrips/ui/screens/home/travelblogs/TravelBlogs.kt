@@ -68,11 +68,10 @@ fun TravelBlogCard(
 fun TravelBlogCard(blog: TravelBlog) {
     Box(
         modifier = Modifier
-            .width(280.dp)
-            .height(180.dp)
+            .width(310.dp)
+            .height(210.dp)
             .padding(end = 8.dp)
     ) {
-        // Display image as the background
         blog.img?.let {
             JetTripImageView(
                 url = it,

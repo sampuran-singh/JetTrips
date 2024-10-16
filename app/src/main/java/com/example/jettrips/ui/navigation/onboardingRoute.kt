@@ -51,7 +51,7 @@ fun NavGraphBuilder.onboardingRoute(modifier: Modifier, navController: NavHostCo
             val phone = it.toRoute<ROUTE_AUTH_NESTED_OTP>()
             OtpScreen(modifier = modifier, phone.phoneNumber) {
                 navController.navigate(route = ROUTE_HOME) {
-                    popUpTo(ROUTE_AUTH_NESTED_ONBOARDING) {
+                    popUpTo(ROUTE_AUTH_NESTED_WELCOME) {
                         inclusive = true
                     }
                 }

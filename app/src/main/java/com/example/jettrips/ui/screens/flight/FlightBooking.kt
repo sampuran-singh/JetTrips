@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material3.Button
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDefaults
 import androidx.compose.material3.DatePickerState
@@ -44,8 +43,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
 import com.example.jettrips.R
-import com.example.jettrips.ui.components.JetTripTextField
 import com.example.jettrips.ui.theme.JetTripsTheme
+import com.example.jettrips.utils.JetTripsButton
+import com.example.jettrips.utils.JetTripsTextField
 import com.example.jettrips.utils.convertMillisToDate
 
 
@@ -95,7 +95,7 @@ fun FlightBooking(modifier: Modifier, onBookFlightClicked: () -> Unit) {
             color = Color.Black
         )
 
-        Row {
+        Row (verticalAlignment = Alignment.CenterVertically) {
             FlightType("One Way", tripType) {
                 tripType = "One Way"
             }
@@ -108,26 +108,34 @@ fun FlightBooking(modifier: Modifier, onBookFlightClicked: () -> Unit) {
         }
 
         // Start destination
-        JetTripTextField(
+        JetTripsTextField(
             value = startDestination,
             onValueChange = { startDestination = it },
-            label = "Start Destination",
-            onIconClick = { showDepartureDatePicker = !showDepartureDatePicker },
-            painter = painterResource(id = R.drawable.ic_flight_takeoff),
-            contentDescription = "Select date",
-            modifier = Modifier
+            label = { Text(text = "Start Destination") },
+            modifier = Modifier,
+            leadingIcon = {
+                IconButton(onClick = { showDepartureDatePicker = !showDepartureDatePicker }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_flight_takeoff),
+                        contentDescription = "Select date"
+                    )
+                }
+            },
         )
 
-
-        // End destination
-        JetTripTextField(
+        JetTripsTextField(
             value = endDestination,
             onValueChange = { endDestination = it },
-            label = "End Destination",
-            onIconClick = { showReturnDatePicker = !showReturnDatePicker },
-            painter = painterResource(id = R.drawable.ic_flight_land),
-            contentDescription = "Select date",
-            modifier = Modifier
+            label = { Text(text = "End Destination") },
+            modifier = Modifier,
+            leadingIcon = {
+                IconButton(onClick = { showReturnDatePicker = !showReturnDatePicker }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_flight_land),
+                        contentDescription = "Select date"
+                    )
+                }
+            },
         )
 
         FlightDateSelection(
@@ -139,7 +147,6 @@ fun FlightBooking(modifier: Modifier, onBookFlightClicked: () -> Unit) {
             onPopUpDismiss = { showDepartureDatePicker = false },
             onClick = { showDepartureDatePicker = !showDepartureDatePicker }
         )
-        // Departure date picker
 
 
         // Return date picker (only for round trip)
@@ -155,26 +162,24 @@ fun FlightBooking(modifier: Modifier, onBookFlightClicked: () -> Unit) {
             )
         }
 
-        JetTripTextField(
+        JetTripsTextField(
             value = passengers,
             onValueChange = { passengers = it },
-            label = "Number of Passengers",
-            onIconClick = { showDepartureDatePicker = !showDepartureDatePicker },
-            painter = painterResource(id = R.drawable.ic_passenger),
-            contentDescription = "Select date",
+            label = { Text(text = "Number of Passengers") },
             modifier = Modifier,
+            leadingIcon = {
+                IconButton(onClick = { showDepartureDatePicker = !showDepartureDatePicker }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_passenger),
+                        contentDescription = "Select date"
+                    )
+                }
+            },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
-
         )
 
-        // Book Button
-        Button(
-            onClick = { onBookFlightClicked() },
-            enabled = isFormComplete,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = "Book Flight")
-        }
+
+        JetTripsButton(text = "Book Flight", enabled = isFormComplete) { onBookFlightClicked() }
     }
 }
 

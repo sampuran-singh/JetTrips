@@ -4,8 +4,8 @@ package com.example.jettrips.ui.theme
 import androidx.compose.ui.graphics.Color
 
 // Light Theme Colors
-val primaryLight = Color(0xFF0D6681)
-val onPrimaryLight = Color(0xFFFFFFFF)
+val primaryLight = Color.White
+val onPrimaryLight = Color.DarkGray
 val primaryContainerLight = Color(0xFFBBEAFF)
 val onPrimaryContainerLight = Color(0xFF001F29)
 val secondaryLight = Color(0xFF4C616B)

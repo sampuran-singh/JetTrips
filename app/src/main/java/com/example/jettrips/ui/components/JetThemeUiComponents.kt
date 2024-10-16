@@ -30,7 +30,7 @@ import com.example.imageloader.ImageLoader
 
 
 @Composable
-fun JetTripTextField(
+fun JetTripTextFieldOld(
     value: String,
     onValueChange: (String) -> Unit,
     label: String = "",

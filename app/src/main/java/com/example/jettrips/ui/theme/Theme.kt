@@ -108,7 +108,7 @@ fun JetTripsTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> darkColors
+        darkTheme -> lightColors
         else -> lightColors
     }
 

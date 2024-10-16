@@ -16,9 +16,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -28,8 +28,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
@@ -151,29 +149,27 @@ fun JetTripsTextField(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     placeholder: @Composable (() -> Unit)? = null,
     isError: Boolean = false,
+    leadingIcon: @Composable (() -> Unit)? = null
 ) {
-    TextField(
+    OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
         label = label,
         placeholder = placeholder,
         keyboardOptions = keyboardOptions,
+        leadingIcon = leadingIcon,
         colors = OutlinedTextFieldDefaults.colors(
             focusedTextColor = Color.DarkGray,
             focusedBorderColor = Color.DarkGray,
-            focusedContainerColor = Color.White,
             errorTextColor = Color.DarkGray,
             errorBorderColor = Color.DarkGray,
-            errorContainerColor = Color.White,
-            disabledContainerColor = Color.White,
-            unfocusedContainerColor = Color.White,
             focusedLabelColor = Color.DarkGray,
             unfocusedLabelColor = Color.Gray,
             focusedPlaceholderColor = Color.DarkGray,
             cursorColor = Color.DarkGray
         ),
         singleLine = true,
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         isError = isError
     )
 }
