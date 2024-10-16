@@ -85,3 +85,10 @@ val GreenTeal = Color(0xFF48C9B0)
 val DarkGrey_333333 = Color(0xFF333333)
 val LightGrey_888888 = Color(0xFF888888)
 val LightGrey_CCCCCC = Color(0xFFCCCCCC)
+
+//New Dark theme
+val dark_backgound_primary = Color(0xFF1C1C1E)
+val dark_backgound_secondary = Color(0xFF2C2C2E)
+val dark_backgound_tertiary = Color(0xFF2C2C2E)
+val dark_backgound_inversePrimary = Color(0xFF1F1F21)
+val dark_backgound_inverseSecondary = Color(0xFF38383A)
