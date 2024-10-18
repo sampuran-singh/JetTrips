@@ -1,4 +1,4 @@
-package com.example.jettrips.ui.screens.flight
+package com.example.jettrips.flights.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -21,6 +21,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.RadioButton
@@ -42,7 +43,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.jettrips.R
+import com.example.jettrips.flights.FlightViewModel
+import com.example.jettrips.flights.bottomsheet.PassengerBottomsheet
 import com.example.jettrips.ui.theme.JetTripsTheme
 import com.example.jettrips.utils.JetTripsButton
 import com.example.jettrips.utils.JetTripsTextField
@@ -51,11 +55,18 @@ import com.example.jettrips.utils.convertMillisToDate
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FlightBooking(modifier: Modifier, onBookFlightClicked: () -> Unit) {
+fun FlightBooking(
+    modifier: Modifier,
+    onBookFlightClicked: () -> Unit,
+    flightViewModel: FlightViewModel = hiltViewModel()
+) {
     var tripType by remember { mutableStateOf("One Way") }
-    var startDestination by remember { mutableStateOf("") }
-    var endDestination by remember { mutableStateOf("") }
-    var passengers by remember { mutableStateOf("") }
+    var startDestination by remember { mutableStateOf(flightViewModel.getDefaultStart()) }
+    var endDestination by remember { mutableStateOf(flightViewModel.getDefaultDestination()) }
+    var passengers by remember { mutableStateOf("0 Adult") }
+    var showPassengerBottomsheet by remember { mutableStateOf(false) }
+    var showAirportBottomsheet by remember { mutableStateOf(false) }
+
 
     var showDepartureDatePicker by remember { mutableStateOf(false) }
     var showReturnDatePicker by remember { mutableStateOf(false) }
@@ -95,7 +106,7 @@ fun FlightBooking(modifier: Modifier, onBookFlightClicked: () -> Unit) {
             color = Color.Black
         )
 
-        Row (verticalAlignment = Alignment.CenterVertically) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             FlightType("One Way", tripType) {
                 tripType = "One Way"
             }
@@ -112,22 +123,24 @@ fun FlightBooking(modifier: Modifier, onBookFlightClicked: () -> Unit) {
             value = startDestination,
             onValueChange = { startDestination = it },
             label = { Text(text = "Start Destination") },
-            modifier = Modifier,
+            modifier = Modifier.fillMaxWidth(),
+            readOnly = true,
             leadingIcon = {
-                IconButton(onClick = { showDepartureDatePicker = !showDepartureDatePicker }) {
+                IconButton(onClick = {showAirportBottomsheet = true }) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_flight_takeoff),
                         contentDescription = "Select date"
                     )
                 }
             },
-        )
+
+            )
 
         JetTripsTextField(
             value = endDestination,
             onValueChange = { endDestination = it },
             label = { Text(text = "End Destination") },
-            modifier = Modifier,
+            modifier = Modifier.fillMaxWidth(),
             leadingIcon = {
                 IconButton(onClick = { showReturnDatePicker = !showReturnDatePicker }) {
                     Icon(
@@ -162,13 +175,16 @@ fun FlightBooking(modifier: Modifier, onBookFlightClicked: () -> Unit) {
             )
         }
 
+
         JetTripsTextField(
             value = passengers,
             onValueChange = { passengers = it },
             label = { Text(text = "Number of Passengers") },
-            modifier = Modifier,
+            modifier = Modifier
+                .fillMaxWidth(),
+            readOnly = true,
             leadingIcon = {
-                IconButton(onClick = { showDepartureDatePicker = !showDepartureDatePicker }) {
+                IconButton(onClick = { showPassengerBottomsheet = true }) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_passenger),
                         contentDescription = "Select date"
@@ -178,8 +194,25 @@ fun FlightBooking(modifier: Modifier, onBookFlightClicked: () -> Unit) {
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
 
-
         JetTripsButton(text = "Book Flight", enabled = isFormComplete) { onBookFlightClicked() }
+        if (showPassengerBottomsheet) {
+            ModalBottomSheet(onDismissRequest = { showPassengerBottomsheet = false }) {
+                PassengerBottomsheet {
+                    showPassengerBottomsheet = false
+                    passengers = "Adult: ${it.adult} Children: ${it.children}"
+                }
+            }
+        }
+
+        if (showAirportBottomsheet) {
+            ModalBottomSheet(onDismissRequest = { showPassengerBottomsheet = false }) {
+                FlightSearchScreen() {
+                    //Handle returned resut here
+
+                }
+            }
+        }
+
     }
 }
 
@@ -197,6 +230,7 @@ fun FlightType(label: String, tripType: String, onClick: () -> Unit) {
     )
     Text(text = label, modifier = Modifier.padding(start = 4.dp), color = Color.Black)
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -261,11 +295,11 @@ fun FlightDateSelection(
     }
 }
 
+
 @Preview
 @Composable
 fun FlightBookingView() {
     JetTripsTheme(dynamicColor = false) {
-        FlightBooking(modifier = Modifier) {
-        }
+        FlightBooking(modifier = Modifier, {})
     }
 }

@@ -10,7 +10,8 @@ data class CategoryItem(
     val textResId: Int,
     val colors: List<Color>,
     val iconResId: Int,
-    val size: Dp = 48.dp
+    val size: Dp = 48.dp,
+    val isEnabled: Boolean = false
 )
 
 enum class CATEGORY_ID {
@@ -25,7 +26,8 @@ val categories = listOf(
         categoryId = CATEGORY_ID.CATEGORY_FLIGHT,
         textResId = R.string.category_flight,
         colors = listOf(Color.White, Color.Green),
-        iconResId = R.drawable.category_place
+        iconResId = R.drawable.category_place,
+        isEnabled = true
     ),
     CategoryItem(
         categoryId = CATEGORY_ID.CATEGORY_HOTEL,

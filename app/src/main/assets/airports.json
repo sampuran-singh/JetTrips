@@ -1,0 +1,158 @@
+{
+  "airports": [
+    {
+      "cityName": "Delhi",
+      "country": "India",
+      "iataCode": "DEL",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Mumbai",
+      "country": "India",
+      "iataCode": "BOM",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Bengaluru",
+      "country": "India",
+      "iataCode": "BLR",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Chennai",
+      "country": "India",
+      "iataCode": "MAA",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Kolkata",
+      "country": "India",
+      "iataCode": "CCU",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Hyderabad",
+      "country": "India",
+      "iataCode": "HYD",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Ahmedabad",
+      "country": "India",
+      "iataCode": "AMD",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Pune",
+      "country": "India",
+      "iataCode": "PNQ",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Jaipur",
+      "country": "India",
+      "iataCode": "JAI",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Kochi",
+      "country": "India",
+      "iataCode": "COK",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Goa",
+      "country": "India",
+      "iataCode": "GOI",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Lucknow",
+      "country": "India",
+      "iataCode": "LKO",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Mangaluru",
+      "country": "India",
+      "iataCode": "IXE",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Indore",
+      "country": "India",
+      "iataCode": "IDR",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "Vadodara",
+      "country": "India",
+      "iataCode": "BDQ",
+      "timezone": "Asia/Kolkata",
+      "isInternational": true
+    },
+    {
+      "cityName": "New York",
+      "country": "United States",
+      "iataCode": "JFK",
+      "timezone": "America/New_York",
+      "isInternational": true
+    },
+    {
+      "cityName": "Los Angeles",
+      "country": "United States",
+      "iataCode": "LAX",
+      "timezone": "America/Los_Angeles",
+      "isInternational": true
+    },
+    {
+      "cityName": "Chicago",
+      "country": "United States",
+      "iataCode": "ORD",
+      "timezone": "America/Chicago",
+      "isInternational": true
+    },
+    {
+      "cityName": "Houston",
+      "country": "United States",
+      "iataCode": "IAH",
+      "timezone": "America/Chicago",
+      "isInternational": true
+    },
+    {
+      "cityName": "Miami",
+      "country": "United States",
+      "iataCode": "MIA",
+      "timezone": "America/New_York",
+      "isInternational": true
+    },
+    {
+      "cityName": "London",
+      "country": "United Kingdom",
+      "iataCode": "LHR",
+      "timezone": "Europe/London",
+      "isInternational": true
+    },
+    {
+      "cityName": "Manchester",
+      "country": "United Kingdom",
+      "iataCode": "MAN",
+      "timezone": "Europe/London",
+      "isInternational": true
+    }
+  ]
+}

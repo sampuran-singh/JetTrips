@@ -93,6 +93,11 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.kotlinxCoroutinesTest)
     testImplementation(kotlin("test"))
-    implementation("com.google.accompanist:accompanist-pager:0.30.0")
-    implementation("com.google.accompanist:accompanist-pager-indicators:0.30.0")
+    implementation(libs.accompanist.pager)
+    implementation(libs.accompanist.pager.indicators)
+
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    implementation(libs.androidx.room.ktx)
 }

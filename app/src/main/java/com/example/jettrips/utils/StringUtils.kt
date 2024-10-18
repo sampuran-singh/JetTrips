@@ -1,6 +1,7 @@
 package com.example.jettrips.utils
 
 import android.util.Log
+import com.example.jettrips.flights.model.OperatingCity
 import com.example.jettrips.model.TouristDestination
 import com.example.jettrips.model.TravelBlog
 import org.json.JSONObject

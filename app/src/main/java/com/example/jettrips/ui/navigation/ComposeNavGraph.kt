@@ -7,10 +7,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.jettrips.flights.screens.FlightHome
 import com.example.jettrips.ui.screens.account.MyAccount
 import com.example.jettrips.ui.screens.bookings.MyBookings
 import com.example.jettrips.ui.screens.favorites.Favorites
-import com.example.jettrips.ui.screens.flight.FlightHome
 import com.example.jettrips.ui.screens.home.HomeScreen
 import com.example.jettrips.ui.screens.hotels.HotelsHome
 import com.example.jettrips.utils.CATEGORY_ID
@@ -22,7 +22,7 @@ fun ComposeNavGraph(
     navController: NavHostController = rememberNavController()
 ) {
     //ROUTE_AUTH_NESTED
-    NavHost(navController = navController, startDestination = ROUTE_AUTH_NESTED) {
+    NavHost(navController = navController, startDestination = ROUTE_FLIGHT) {
         onboardingRoute(modifier, navController)
         composable<ROUTE_HOME> {
             HomeScreen(modifier = modifier, {
@@ -44,9 +44,10 @@ fun ComposeNavGraph(
             Favorites(modifier = modifier)
         }
         composable<ROUTE_FLIGHT> {
-            FlightHome(modifier = modifier) {
+            FlightHome(modifier = modifier, {
                 navController.navigate(route = ROUTE_PAYMENT)
-            }
+
+            })
         }
         composable<ROUTE_HOTEL> {
             HotelsHome(modifier = modifier) {

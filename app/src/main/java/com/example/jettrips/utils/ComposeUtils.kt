@@ -15,6 +15,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -35,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.jettrips.R
+import java.time.format.TextStyle
 
 @Composable
 fun OpenWebView(url: String) {
@@ -92,7 +94,7 @@ fun TermsAndPrivacyText() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBarWithBackButton(onBackClick: () -> Unit) {
+fun JetTripsTopAppBar(onBackClick: () -> Unit) {
     TopAppBar(
         title = {
             Text(
@@ -143,13 +145,17 @@ fun JetTripsButton(text: String, enabled: Boolean, onClick: () -> Unit) {
 fun JetTripsTextField(
     value: String,
     onValueChange: (String) -> Unit,
-    modifier: Modifier,
     label: @Composable (() -> Unit)? = null,
     singleLine: Boolean = false,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     placeholder: @Composable (() -> Unit)? = null,
     isError: Boolean = false,
-    leadingIcon: @Composable (() -> Unit)? = null
+    enabled: Boolean = true,
+    readOnly: Boolean = false,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
+    modifier: Modifier,
+    textStyle: androidx.compose.ui.text.TextStyle = LocalTextStyle.current,
 ) {
     OutlinedTextField(
         value = value,
@@ -158,6 +164,7 @@ fun JetTripsTextField(
         placeholder = placeholder,
         keyboardOptions = keyboardOptions,
         leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
         colors = OutlinedTextFieldDefaults.colors(
             focusedTextColor = Color.DarkGray,
             focusedBorderColor = Color.DarkGray,
@@ -169,7 +176,10 @@ fun JetTripsTextField(
             cursorColor = Color.DarkGray
         ),
         singleLine = true,
-        modifier = modifier.fillMaxWidth(),
-        isError = isError
+        enabled = enabled,
+        readOnly = readOnly,
+        modifier = modifier,
+        isError = isError,
+        textStyle = textStyle
     )
 }

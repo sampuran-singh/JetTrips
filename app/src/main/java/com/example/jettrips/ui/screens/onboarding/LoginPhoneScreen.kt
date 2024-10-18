@@ -44,7 +44,7 @@ import com.example.jettrips.R
 import com.example.jettrips.ui.theme.JetTripsTheme
 import com.example.jettrips.utils.JetTripsButton
 import com.example.jettrips.utils.JetTripsTextField
-import com.example.jettrips.utils.TopAppBarWithBackButton
+import com.example.jettrips.utils.JetTripsTopAppBar
 
 @Composable
 
@@ -55,7 +55,7 @@ fun LoginPhoneScreen(
 ) {
     Scaffold(
         topBar = {
-            TopAppBarWithBackButton(onBackClick = {
+            JetTripsTopAppBar(onBackClick = {
                 obBackClicked()
             })
         },

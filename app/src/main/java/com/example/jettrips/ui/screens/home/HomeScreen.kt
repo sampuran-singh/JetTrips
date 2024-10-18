@@ -1,5 +1,6 @@
 package com.example.jettrips.ui.screens.home
 
+import android.widget.Toast
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.BorderStroke
@@ -27,6 +28,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -38,6 +40,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -51,9 +54,9 @@ import com.example.jettrips.ui.screens.bottombar.HomeBottomBar
 import com.example.jettrips.ui.screens.home.explore.ExploreCard
 import com.example.jettrips.ui.screens.home.travelblogs.TravelBlogCard
 import com.example.jettrips.ui.theme.JetTripsTheme
-import com.example.jettrips.ui.theme.sanComicsFontFamily
 import com.example.jettrips.utils.CATEGORY_ID
 import com.example.jettrips.utils.categories
+import kotlinx.coroutines.delay
 
 @Composable
 fun HomeScreen(
@@ -61,6 +64,7 @@ fun HomeScreen(
     onCategoryClicked: (CATEGORY_ID) -> Unit,
     navController: NavController = rememberNavController()
 ) {
+    val context = LocalContext.current
     Scaffold(
         topBar = {
             Box(
@@ -104,7 +108,17 @@ fun HomeScreen(
                             color = emptyList(),
                             painter = painterResource(id = category.iconResId),
                             size = category.size,
-                            onCategoryClicked = { onCategoryClicked(category.categoryId) }
+                            onCategoryClicked = {
+                                if (category.isEnabled) {
+                                    onCategoryClicked(category.categoryId)
+                                } else {
+                                    Toast.makeText(
+                                        context,
+                                        "${category.categoryId} is not support right now",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                }
+                            }
                         )
                     }
                 }
@@ -177,23 +191,28 @@ fun Category(
             )
         )
     } else {
-        Modifier // No background applied if the color list is empty
+        Modifier
     }
 
 
     var isPressed by remember { mutableStateOf(false) }
 
-    // Animate the elevation of the card
     val elevation by animateDpAsState(targetValue = if (isPressed) 16.dp else 4.dp)
 
-    // Animate the scale of the card for a hovering effect
     val scale by animateFloatAsState(targetValue = if (isPressed) 1.1f else 1f)
+
+    LaunchedEffect(isPressed) {
+        if (isPressed) {
+            delay(250)
+            isPressed = false
+        }
+    }
 
     Card(
         modifier = modifier
             .fillMaxHeight()
             .padding(horizontal = 4.dp)
-            .scale(scale) // Apply the animated scale
+            .scale(scale)
             .clickable {
                 isPressed = !isPressed
                 onCategoryClicked()
